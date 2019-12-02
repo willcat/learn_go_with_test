@@ -23,6 +23,7 @@ func Perimeter(rectangle Rectangle) float64 {
 	return 2 * (rectangle.Height + rectangle.Width)
 }
 
+//在 Go 语言中 interface resolution 是隐式的。如果传入的类型匹配接口需要的，则编译正确。
 type Shape interface {
 	Area() float64
 }
