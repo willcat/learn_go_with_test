@@ -22,3 +22,7 @@ func (c Circle) Area() float64 {
 func Perimeter(rectangle Rectangle) float64 {
 	return 2 * (rectangle.Height + rectangle.Width)
 }
+
+type Shape interface {
+	Area() float64
+}
