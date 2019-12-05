@@ -19,3 +19,7 @@ func (w *Wallet) Balance() Bitcoin {
 func (b Bitcoin) String() string {
 	return fmt.Sprintf("%d BTC", b)
 }
+
+func (w *Wallet) WithDraw(amount Bitcoin) {
+	w.balance -= amount
+}
