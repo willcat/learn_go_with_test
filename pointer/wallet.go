@@ -1,6 +1,9 @@
 package pointer
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Bitcoin int
 
@@ -20,6 +23,11 @@ func (b Bitcoin) String() string {
 	return fmt.Sprintf("%d BTC", b)
 }
 
-func (w *Wallet) WithDraw(amount Bitcoin) {
+func (w *Wallet) WithDraw(amount Bitcoin) error {
+	if amount > w.Balance() {
+		return errors.New("funds insufficient")
+	}
+
 	w.balance -= amount
+	return nil
 }
